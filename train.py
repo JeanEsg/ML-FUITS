@@ -25,7 +25,7 @@ EPOCHS = 30
 LEARNING_RATE = 1e-3
 VALIDATION_SPLIT = 0.2
 
-DATASET_DIR = Path(os.getenv("DATASET_DIR", "/app/data/fruits-360_original-size"))
+DATASET_DIR = Path(os.getenv("DATASET_DIR", "/app/data/fruits-360-original-size"))
 ARTIFACTS_DIR = Path(os.getenv("ARTIFACTS_DIR", "/app/artifacts"))
 TRAIN_DIR = DATASET_DIR / "Training"
 TEST_DIR = DATASET_DIR / "Test"
