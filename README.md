@@ -9,7 +9,7 @@ El entrenamiento se realiza dentro de un **contenedor Docker con soporte GPU**, 
 Del data set de fruits-360 solo se uso una parte del dataset orignal que fueron las imagenes 100x100 excluyendo las otras paara que el entrenamiento no fuera tan pesado. 
 También es neecsario tener el dataset antes de  todo dentro de la carpeta data, con la siguiente estructurapara garantizar un entrenamiento sin errores:
 ````bash
-└───fruits-360
+└───fruits-360_orginal-size
     ├───Papers
     ├───Test
     │   ├───...
