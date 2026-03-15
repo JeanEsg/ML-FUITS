@@ -31,9 +31,14 @@ El entrenamiento se realiza dentro de un **contenedor Docker con soporte GPU**, 
         ├───...
 ```
 
-3. Antes de entrenar, tener en cuneta que hay carpetas en Test y Training que por algún error son la misma clase pero con diferente nombre por lo que nos dará error al entrenar.
-   Por eso se recomienda correr antes el archivo util.py que te ayudara a identificar las carpetas con esos errores. El siguiente paso a seguir es corregir en una de las dos carpetas
-   (Training o Test) los nombres de los directorios de imagénes que no concuerden. Entonces ve primero a los pasos de creación del entorno en conda y después realizas los pasos del entrenamiento.
+3. Antes de entrenar, tener en cuenta que hay carpetas en Test y Training que por algún error son la misma clase pero con diferente nombre por lo que nos dará error al entrenar.
+   Por eso se recomienda correr antes el archivo util.py
+
+   ````bash
+   python ultil.py
+   ````
+   Que te ayudara a identificar las carpetas con esos errores. El siguiente paso a seguir es corregir en una de las dos carpetas
+   (Training o Test) los nombres de los directorios de imagénes que no concuerden. **Entonces ve primero a los pasos de creación del entorno en conda** y después realizas los pasos del entrenamiento.
 
 ---
 
