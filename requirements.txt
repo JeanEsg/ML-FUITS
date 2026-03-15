@@ -1,6 +1,15 @@
-tensorflow==2.16.1
+# Core ML & Framework (Congelados para compatibilidad total)
+tensorflow==2.15.0
+keras==2.15.0
+
+# Procesamiento y Analítica
 numpy==1.26.4
 scikit-learn==1.4.2
 pandas==2.2.2
+
+# Visualización (Indispensables para tus gráficas y matriz)
 matplotlib==3.8.4
 seaborn==0.13.2
+
+# Interfaz (Para el plus del proyecto)
+gradio
