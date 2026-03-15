@@ -5,10 +5,22 @@ El entrenamiento se realiza dentro de un **contenedor Docker con soporte GPU**, 
 
 ---
 
+# 📌 Características
+
+- Entrenamiento reproducible utilizando **Docker**
+- Soporte para **GPU NVIDIA**
+- Separación entre **entrenamiento y predicción**
+- Uso del dataset **Fruits 360** para clasificación de imágenes
+- Predicciones locales mediante **Python + Conda**
+
+---
+
 # ⚠️ IMPORTANTE
-1. Del data set de fruits-360 solo se uso una parte del dataset orignal que fueron las imagenes 100x100 excluyendo las otras paara que el entrenamiento no fuera tan pesado.
+
+1. Del data set de fruits-360 solo se uso una parte del dataset orignal que fueron las imagenes 100x100 excluyendo las otras para que el entrenamiento no fuera tan pesado.
 2. También es necesario tener el dataset antes de todo dentro de la carpeta data, con la siguiente estructura para garantizar un entrenamiento sin errores:
-````bash
+
+```bash
 └───fruits-360_orginal-size
     ├───Papers
     ├───Test
@@ -17,17 +29,11 @@ El entrenamiento se realiza dentro de un **contenedor Docker con soporte GPU**, 
     │   ├───...
     └───Validation
         ├───...
-````
+```
 
----
-
-# 📌 Características
-
-- Entrenamiento reproducible utilizando **Docker**
-- Soporte para **GPU NVIDIA**
-- Separación entre **entrenamiento y predicción**
-- Uso del dataset **Fruits 360** para clasificación de imágenes
-- Predicciones locales mediante **Python + Conda**
+3. Antes de entrenar, tener en cuneta que hay carpetas en Test y Training que por algún error son la misma clase pero con diferente nombre por lo que nos dará error al entrenar.
+   Por eso se recomienda correr antes el archivo util.py que te ayudara a identificar las carpetas con esos errores. El siguiente paso a seguir es corregir en una de las dos carpetas
+   (Training o Test) los nombres de los directorios de imagénes que no concuerden. Entonces ve primero a los pasos de creación del entorno en conda y después realizas los pasos del entrenamiento.
 
 ---
 
@@ -41,7 +47,8 @@ Ejecuta el siguiente comando en la raíz del proyecto para crear la imagen de en
 
 ```bash
 docker build -t fruits360-trainer .
-````
+```
+
 ## 2. Ejecutar el contenedor
 
 Este comando iniciará el proceso de entrenamiento y montará las carpetas locales de datos y resultados dentro del contenedor.
@@ -53,45 +60,54 @@ docker run --rm --gpus all `
   -v "${PWD}/data:/app/data" `
   -v "${PWD}/artifacts:/app/artifacts" `
   fruits360-trainer
-````
+```
+
 ⚠️ Importante:
 Asegúrate de que las carpetas data y artifacts existan en el directorio raíz antes de ejecutar el comando.
 
 ---
 
 # 🔮 Predicciones (Entorno Local)
+
 Para ejecutar las predicciones fuera del contenedor usando Conda, sigue estos pasos.
 
 ## 3. Crear el entorno virtual
+
 ```bash
 conda create -n fruits_ml python=3.10 -y
-````
+```
 
 ## 4. Activar el entorno
-````bash
+
+```bash
 conda activate fruits_ml
-````
+```
 
 ## 5. Instalar dependencias
+
 Asegúrate de tener el archivo requirements.txt en la raíz del proyecto.
-````bash
+
+```bash
 pip install -r requirements.txt
-````
+```
 
 ## 6. Ejecutar predcción
+
 Una vez que el modelo esté entrenado y el archivo del modelo (por ejemplo .h5) se encuentre disponible, ejecuta:
-````bash
+
+```bash
 python predict.py
-````
+```
 
 ---
 
 # 📂 Estructura del Proyecto
-````bash
+
+```bash
 .
 ├── data/          # Dataset de imágenes Fruits 360
 ├── artifacts/     # Pesos del modelo, métricas y logs
 ├── predict.py     # Script para realizar predicciones
 ├── Dockerfile     # Configuración del entorno de entrenamiento
 └── requirements.txt
-````
+```
