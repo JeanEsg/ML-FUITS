@@ -23,13 +23,14 @@ https://www.kaggle.com/datasets/moltean/fruits/data?select=fruits-360_100x100
 2. También es necesario tener el dataset antes de todo dentro de la carpeta data, con la siguiente estructura para garantizar un entrenamiento sin errores:
 
 ```bash
-└───fruits-360_orginal-size
-    ├───Papers
-    ├───Test
+data/
+└───fruits-360_orginal-size/
+    ├───Papers/
+    ├───Test/
     │   ├───...
-    ├───Training
+    ├───Training/
     │   ├───...
-    └───Validation
+    └───Validation/
         ├───...
 ```
 
