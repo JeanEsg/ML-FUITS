@@ -5,6 +5,22 @@ El entrenamiento se realiza dentro de un **contenedor Docker con soporte GPU**, 
 
 ---
 
+# ⚠️ IMPORTANTE
+Del data set de fruits-360 solo se uso una parte del dataset orignal que fueron las imagenes 100x100 excluyendo las otras paara que el entrenamiento no fuera tan pesado. 
+También es neecsario tener el dataset antes de  todo dentro de la carpeta data, con la siguiente estructurapara garantizar un entrenamiento sin errores:
+````bash
+└───fruits-360
+    ├───Papers
+    ├───Test
+    │   ├───...
+    ├───Training
+    │   ├───...
+    └───Validation
+        ├───...
+````
+
+---
+
 # 📌 Características
 
 - Entrenamiento reproducible utilizando **Docker**
@@ -67,6 +83,8 @@ Una vez que el modelo esté entrenado y el archivo del modelo (por ejemplo .h5) 
 ````bash
 python predict.py
 ````
+
+---
 
 # 📂 Estructura del Proyecto
 ````bash
