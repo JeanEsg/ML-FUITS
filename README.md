@@ -18,6 +18,8 @@ El entrenamiento se realiza dentro de un **contenedor Docker con soporte GPU**, 
 # ⚠️ IMPORTANTE
 
 1. Del data set de fruits-360 solo se uso una parte del dataset orignal que fueron las imagenes 100x100 excluyendo las otras para que el entrenamiento no fuera tan pesado.
+https://www.kaggle.com/datasets/moltean/fruits/data?select=fruits-360_100x100
+
 2. También es necesario tener el dataset antes de todo dentro de la carpeta data, con la siguiente estructura para garantizar un entrenamiento sin errores:
 
 ```bash
