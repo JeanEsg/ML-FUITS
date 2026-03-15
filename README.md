@@ -26,7 +26,7 @@ Ejecuta el siguiente comando en la raíz del proyecto para crear la imagen de en
 ```bash
 docker build -t fruits360-trainer .
 ````
-2. Ejecutar el contenedor
+## 2. Ejecutar el contenedor
 
 Este comando iniciará el proceso de entrenamiento y montará las carpetas locales de datos y resultados dentro del contenedor.
 
@@ -43,32 +43,32 @@ Asegúrate de que las carpetas data y artifacts existan en el directorio raíz a
 
 ---
 
-#🔮 Predicciones (Entorno Local)
+# 🔮 Predicciones (Entorno Local)
 Para ejecutar las predicciones fuera del contenedor usando Conda, sigue estos pasos.
 
-##3. Crear el entorno virtual
+## 3. Crear el entorno virtual
 ```bash
 conda create -n fruits_ml python=3.10 -y
 ````
 
-##4. Activar el entorno
+## 4. Activar el entorno
 ````bash
 conda activate fruits_ml
 ````
 
-##5. Instalar dependencias
+## 5. Instalar dependencias
 Asegúrate de tener el archivo requirements.txt en la raíz del proyecto.
 ````bash
 pip install -r requirements.txt
 ````
 
-##6. Ejecutar predcción
+## 6. Ejecutar predcción
 Una vez que el modelo esté entrenado y el archivo del modelo (por ejemplo .h5) se encuentre disponible, ejecuta:
 ````bash
 python predict.py
 ````
 
-#📂 Estructura del Proyecto
+# 📂 Estructura del Proyecto
 .
 ├── data/          # Dataset de imágenes Fruits 360
 ├── artifacts/     # Pesos del modelo, métricas y logs
