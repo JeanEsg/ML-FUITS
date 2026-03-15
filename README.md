@@ -1,23 +1,20 @@
-Fruits 360 Trainer & Predictor 🍎🍌
-Este proyecto permite entrenar un modelo de clasificación de imágenes utilizando el dataset Fruits 360 dentro de un entorno Dockerizado con soporte para GPU, además de realizar predicciones mediante un entorno de Conda.
+# Fruits 360 Trainer & Predictor 🍎🍌
 
-🚀 Requisitos Previos
-Docker instalado.
+Este repositorio contiene las herramientas necesarias para entrenar un modelo de clasificación de imágenes utilizando el dataset **Fruits 360** mediante Docker y realizar inferencias en un entorno local de Conda.
 
-NVIDIA Container Toolkit (para soporte de GPU en Docker).
+---
 
-Conda (Miniconda o Anaconda).
+## 🐳 Entrenamiento con Docker (GPU)
 
-🐳 Entrenamiento con Docker (GPU)
-Para asegurar un entorno limpio y aprovechar la aceleración por hardware, utilizamos Docker.
+Para asegurar un entorno reproducible y aprovechar la aceleración por hardware (NVIDIA), utilizamos contenedores.
 
-1. Construir la imagen
-Desde la raíz del proyecto, ejecuta:
+### 1. Construir la imagen
+Ejecuta el siguiente comando en la raíz del proyecto para preparar el entorno de entrenamiento:
 
-Bash
+```bash
 docker build -t fruits360-trainer .
-2. Ejecutar el entrenamiento
-El siguiente comando monta los volúmenes para los datos y los artefactos (modelos guardados), y habilita el uso de todas las GPUs disponibles:
+2. Ejecutar el contenedor
+El siguiente comando inicia el proceso de entrenamiento, vinculando tus carpetas locales de datos y resultados con el contenedor:
 
 PowerShell
 docker run --rm --gpus all `
@@ -26,10 +23,10 @@ docker run --rm --gpus all `
   -v "${PWD}/data:/app/data" `
   -v "${PWD}/artifacts:/app/artifacts" `
   fruits360-trainer
-Nota: Asegúrate de tener las carpetas /data (con las imágenes) y /artifacts creadas en tu directorio actual.
+Nota: Asegúrate de que las carpetas ./data y ./artifacts existan en tu directorio actual antes de correr el comando.
 
-🔮 Predicciones (Entorno Local con Conda)
-Una vez que el modelo esté entrenado, puedes realizar predicciones localmente.
+🔮 Predicciones (Entorno Local)
+Si prefieres realizar las predicciones fuera del contenedor utilizando Conda, sigue estos pasos:
 
 3. Crear el entorno virtual
 Bash
@@ -38,20 +35,20 @@ conda create -n fruits_ml python=3.10 -y
 Bash
 conda activate fruits_ml
 5. Instalar dependencias
+Asegúrate de tener el archivo requirements.txt en la raíz:
+
 Bash
 pip install -r requirements.txt
 6. Ejecutar inferencia
-Puedes usar el script predict.py para probar el modelo con nuevas imágenes:
+Una vez que el modelo esté entrenado y el archivo .h5 (o el formato que uses) esté generado, corre el script de predicción:
 
 Bash
 python predict.py
-Asegúrate de que el archivo del modelo entrenado esté en la ruta que espera el script.
+📂 Estructura de Carpetas
+/data: Carpeta con las imágenes del dataset.
 
-📂 Estructura del Proyecto
-/data: Imágenes para entrenamiento y validación.
+/artifacts: Ubicación donde se guardarán los pesos del modelo y logs.
 
-/artifacts: Directorio donde se guardan los modelos .h5 o .pth.
+predict.py: Script para probar el modelo con nuevas imágenes.
 
-predict.py: Script para realizar inferencias.
-
-Dockerfile: Configuración del contenedor de entrenamiento.
+Dockerfile: Configuración del entorno de entrenamiento.
