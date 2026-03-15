@@ -69,10 +69,11 @@ python predict.py
 ````
 
 # 📂 Estructura del Proyecto
+````bash
 .
 ├── data/          # Dataset de imágenes Fruits 360
 ├── artifacts/     # Pesos del modelo, métricas y logs
 ├── predict.py     # Script para realizar predicciones
 ├── Dockerfile     # Configuración del entorno de entrenamiento
 └── requirements.txt
-
+````
